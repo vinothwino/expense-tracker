@@ -1,35 +1,41 @@
 import React from 'react';
-import {View, Text, StyleSheet, KeyboardAvoidingView} from 'react-native';
-import BrandAuthCard from '@components/atoms/BrandAuthCard';
-import SignInForm from '@components/molecules/SignInForm';
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+  ScrollView,
+} from 'react-native';
+import BrandAuthCard from '@components/molecules/BrandAuthCard';
+import SignInForm from '@components/molecules/SignInOrSignUpForm';
 import {useTheme} from '@react-navigation/native';
 import LinkText from '@components/atoms/LinkText';
 
 const SignInScreen = props => {
   const {navigation} = props;
 
-  console.log(props);
-
   const theme = useTheme();
   const styles = createStyles(theme);
 
   return (
     <KeyboardAvoidingView behavior="height" style={styles.root}>
-      <View style={styles.root}>
-        <BrandAuthCard label="Sign In" />
-        <View style={styles.main}>
-          <View style={styles.formWrapper}>
-            <SignInForm buttonLabel="Sign In" />
-          </View>
-          <View style={styles.linkText}>
-            <Text>Don't have a account ? </Text>
-            <LinkText
-              label="Sign Up"
-              onPress={() => navigation.navigate('SIGN_UP')}
-            />
+      <ScrollView>
+        <View style={styles.root}>
+          <BrandAuthCard label="Sign In" />
+          <View style={styles.main}>
+            <View style={styles.formWrapper}>
+              <SignInForm buttonLabel="Sign In" />
+            </View>
+            <View style={styles.linkText}>
+              <Text>Don't have a account ? </Text>
+              <LinkText
+                label="Sign Up"
+                onPress={() => navigation.navigate('SIGN_UP')}
+              />
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 };

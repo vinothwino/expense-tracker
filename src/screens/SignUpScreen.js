@@ -1,7 +1,13 @@
 import React from 'react';
-import {View, Text, StyleSheet, KeyboardAvoidingView} from 'react-native';
-import BrandAuthCard from '../components/atoms/BrandAuthCard';
-import SignInForm from '../components/molecules/SignInForm';
+import {
+  View,
+  Text,
+  StyleSheet,
+  KeyboardAvoidingView,
+  ScrollView,
+} from 'react-native';
+import BrandAuthCard from '../components/molecules/BrandAuthCard';
+import SignInForm from '../components/organisms/SignInOrSignUpForm';
 import {useTheme} from '@react-navigation/native';
 import LinkText from '../components/atoms/LinkText';
 
@@ -12,18 +18,20 @@ const SignUpScreen = props => {
 
   return (
     <KeyboardAvoidingView behavior="height" style={styles.root}>
-      <View style={styles.root}>
-        <BrandAuthCard label="Sign Up" />
-        <View style={styles.main}>
-          <View style={styles.formWrapper}>
-            <SignInForm buttonLabel="Sign Up" />
-          </View>
-          <View style={styles.linkText}>
-            <Text>Have a account ? </Text>
-            <LinkText label="Sign In" onPress={() => navigation.goBack()} />
+      <ScrollView>
+        <View style={styles.root}>
+          <BrandAuthCard label="Sign Up" />
+          <View style={styles.main}>
+            <View style={styles.formWrapper}>
+              <SignInForm buttonLabel="Sign Up" />
+            </View>
+            <View style={styles.linkText}>
+              <Text>Have a account ? </Text>
+              <LinkText label="Sign In" onPress={() => navigation.goBack()} />
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 };

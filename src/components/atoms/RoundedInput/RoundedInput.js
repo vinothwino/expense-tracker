@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {StyleSheet, TextInput, View} from 'react-native';
+import {StyleSheet, Text, TextInput, View} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {useTheme} from '@react-navigation/native';
 
 function RoundedInput(props) {
-  const {iconName, inputProps} = props;
+  const {iconName, inputProps, error} = props;
   const theme = useTheme();
   const styles = createStyles(theme);
 
@@ -15,6 +15,7 @@ function RoundedInput(props) {
     <View>
       {!!iconName && <Ionicons style={styles.icon} name={iconName} size={18} />}
       <TextInput style={[styles.root, inputPaddingLeft]} {...inputProps} />
+      <Text style={styles.error}>{error}</Text>
     </View>
   );
 }
@@ -48,6 +49,11 @@ const createStyles = theme =>
       left: 22,
       top: 15,
       zIndex: 1,
+    },
+    error: {
+      marginTop: 8,
+      fontSize: 12,
+      color: theme.colors.error,
     },
   });
 export default RoundedInput;
