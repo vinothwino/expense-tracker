@@ -1,5 +1,4 @@
 {
-  "extends": "@tsconfig/react-native/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -10,6 +9,5 @@
       "@utils/*": ["./src/utils/*"],
       "@store/*": ["./src/store/*"]
     }
-  },
-  "exclude": ["node_modules", "dist"]
+  }
 }
