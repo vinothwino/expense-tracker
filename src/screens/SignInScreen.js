@@ -7,12 +7,12 @@ import {
   ScrollView,
 } from 'react-native';
 import BrandAuthCard from '@components/molecules/BrandAuthCard';
-import SignInForm from '@components/molecules/SignInOrSignUpForm';
-import {useTheme} from '@react-navigation/native';
+import SignInForm from '@components/organisms/SignInOrSignUpForm';
+import { useTheme } from '@react-navigation/native';
 import LinkText from '@components/atoms/LinkText';
 
 const SignInScreen = props => {
-  const {navigation} = props;
+  const { navigation } = props;
 
   const theme = useTheme();
   const styles = createStyles(theme);
@@ -24,7 +24,7 @@ const SignInScreen = props => {
           <BrandAuthCard label="Sign In" />
           <View style={styles.main}>
             <View style={styles.formWrapper}>
-              <SignInForm buttonLabel="Sign In" />
+              <SignInForm buttonLabel="Sign In" handleSubmitCallback={(msg) => console.log(msg)} />
             </View>
             <View style={styles.linkText}>
               <Text>Don't have a account ? </Text>
